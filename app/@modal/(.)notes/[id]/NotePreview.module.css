@@ -55,14 +55,22 @@
 }
 
 .backBtn {
-  align-self: flex-start;
   padding: 6px 12px;
   font-size: 14px;
-  color: #000000;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  text-decoration: underline;
-  display: inline-block;
-  background-color: transparent;
+  color: #fff;
+  background-color: #36c429;
+  transition: scale 300ms ease-in-out, background-color 300ms ease-in-out;
+  &:hover {
+    background-color: rgb(45, 148, 36);
+    scale: 1.1;
+  }
+}
+
+.btnTimeBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
