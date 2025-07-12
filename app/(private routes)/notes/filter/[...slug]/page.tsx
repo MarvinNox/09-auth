@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `Notes${selectedTag ? ` - ${selectedTag}` : "All Notes"}`,
       description: `Notes filtered by ${selectedTag || "All Notes"}`,
-      url: `https://08-zustand-iota.vercel.app/notes/filter/${slug.join("/")}`,
+      url: `https://09-auth-orcin.vercel.app/notes/filter/${slug.join("/")}`,
       siteName: "NoteHub",
       images: [
         {
