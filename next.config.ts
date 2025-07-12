@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "notehub-public.goit.study" },
+      { hostname: "ac.goit.global" },
     ],
   },
   async headers() {
