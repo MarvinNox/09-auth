@@ -1,4 +1,4 @@
-import { getMe } from "@/lib/api/serverApi";
+import { getServerMe } from "@/lib/api/serverApi";
 
 import css from "./page.module.css";
 import Image from "next/image";
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Profile() {
-  const data = await getMe();
+  const data = await getServerMe();
   return (
     <>
       {data && (
