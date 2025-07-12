@@ -5,7 +5,7 @@ import { nextServer } from "./api";
 
 export const getServerMe = async (): Promise<User> => {
   const cookieData = await cookies();
-  const { data } = await nextServer<User>(`/users/me`, {
+  const { data } = await nextServer.get<User>(`/users/me`, {
     headers: { Cookie: cookieData.toString() },
   });
   return data;
