@@ -24,51 +24,38 @@ export const metadata: Metadata = {
     ],
   },
 };
+
 export default async function Profile() {
   const data = await getServerMe();
-
-  if (!data) {
-    return (
-      <main className={css.mainContent}>
-        <div className={css.profileCard}>
-          <h1 className={css.formTitle}>Profile Unavailable</h1>
-          <p style={{ textAlign: "center", marginTop: "1rem" }}>
-            We couldn’t load your profile. Please try again later.
-          </p>
-          <Link href="/" className={css.editProfileButton}>
-            Go to Home
-          </Link>
-        </div>
-      </main>
-    );
-  }
-
   return (
-    <main className={css.mainContent}>
-      <div className={css.profileCard}>
-        <div className={css.header}>
-          <h1 className={css.formTitle}>Profile Page</h1>
-          <Link href="/profile/edit" className={css.editProfileButton}>
-            Edit Profile
-          </Link>
-        </div>
+    <>
+      {data && (
+        <main className={css.mainContent}>
+          <div className={css.profileCard}>
+            <div className={css.header}>
+              <h1 className={css.formTitle}>Profile Page</h1>
+              <Link href="/profile/edit" className={css.editProfileButton}>
+                Edit Profile
+              </Link>
+            </div>
 
-        <div className={css.avatarWrapper}>
-          <Image
-            src={data.avatar}
-            alt="User Avatar"
-            width={120}
-            height={120}
-            className={css.avatar}
-            priority
-          />
-        </div>
+            <div className={css.avatarWrapper}>
+              <Image
+                src={data.avatar}
+                alt="User Avatar"
+                width={120}
+                height={120}
+                className={css.avatar}
+              />
+            </div>
 
-        <div className={css.profileInfo}>
-          <p>Username: {data.username}</p>
-          <p>Email: {data.email}</p>
-        </div>
-      </div>
-    </main>
+            <div className={css.profileInfo}>
+              <p>Username: {data.username}</p>
+              <p>Email: {data.email}</p>
+            </div>
+          </div>
+        </main>
+      )}
+    </>
   );
 }
