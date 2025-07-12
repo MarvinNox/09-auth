@@ -4,28 +4,13 @@ import { Note } from "@/types/note";
 import { nextServer } from "./api";
 
 export const getMe = async (): Promise<User | null> => {
-  try {
-    const cookieStore = cookies();
-    const response = await nextServer.get("/users/me", {
-      headers: {
-        Cookie: cookieStore.toString(),
-      },
-    });
-    const data = response.data;
-    if (
-      !data ||
-      typeof data.avatar !== "string" ||
-      !data.username ||
-      !data.email
-    ) {
-      return null;
-    }
-
-    return data;
-  } catch (err) {
-    console.error("getMe() failed:", err);
-    return null;
-  }
+  const cookieStore = await cookies();
+  const { data } = await nextServer.get("/users/me", {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+  return data;
 };
 
 export interface FetchNotesProps {

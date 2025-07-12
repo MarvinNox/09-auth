@@ -27,7 +27,6 @@ export const metadata: Metadata = {
 
 export default async function Profile() {
   const data = await getMe();
-
   return (
     <>
       {data && (
