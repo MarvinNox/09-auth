@@ -1,7 +1,7 @@
 import { getServerMe } from "@/lib/api/serverApi";
 
 import css from "./page.module.css";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -27,9 +27,6 @@ export const metadata: Metadata = {
 
 export default async function Profile() {
   const data = await getServerMe();
-  if (!data || !data.avatar) {
-    console.error("⚠️ data або avatar відсутні", data);
-  }
   return (
     <>
       {data && (
@@ -42,7 +39,7 @@ export default async function Profile() {
               </Link>
             </div>
 
-            <div className={css.avatarWrapper}>
+            {/* <div className={css.avatarWrapper}>
               <Image
                 src={data.avatar}
                 alt="User Avatar"
@@ -50,7 +47,7 @@ export default async function Profile() {
                 height={120}
                 className={css.avatar}
               />
-            </div>
+            </div> */}
 
             <div className={css.profileInfo}>
               <p>Username: {data.username}</p>
