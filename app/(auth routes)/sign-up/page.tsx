@@ -7,8 +7,6 @@ import { useState } from "react";
 
 import css from "./SignUp.module.css";
 
-// export const dynamic = 'force-static';
-
 export default function SignUp() {
   const router = useRouter();
   const [error, setError] = useState("");
@@ -27,7 +25,7 @@ export default function SignUp() {
       }
     } catch (error) {
       console.log("error", error);
-      setError("Oops... some error");
+      setError("Oops... Something went wrong, try later");
     }
   };
 
